@@ -26,7 +26,7 @@ function Generator() {
   };
 
   return (
-    <div className="w-full max-w-7xl flex justify-center items-center flex-col p-4 gap-2">
+    <div className="w-full flex flex-col p-4 gap-2">
       <div className="grid w-full gap-2">
         <Label htmlFor="document">Documento gerado:</Label>
 
