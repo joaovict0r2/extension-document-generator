@@ -14,6 +14,8 @@ function Generator() {
     const generatedDocument = type === "CPF" ? generateCPF() : generateCNPJ();
     const elem = document.getElementById("document") as HTMLInputElement;
 
+    setTooltipText('Click to Copy')
+
     elem.defaultValue =
       type === "CPF" ? cpfMask(generatedDocument) : cnpjMask(generatedDocument);
   };
@@ -26,7 +28,7 @@ function Generator() {
   };
 
   return (
-    <div className="w-full flex flex-col p-4 gap-2">
+    <div className="w-full flex flex-col p-4 mt-3.5 gap-2">
       <div className="grid w-full gap-2">
         <Label htmlFor="document">Documento gerado:</Label>
 
