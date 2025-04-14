@@ -31,7 +31,7 @@ pnpm dev
 5. Go to `chrome://extensions/`
 6. Enable `Developer mode`
 7. Click on `Load unpacked`
-8. Select the repository dist folder
+8. Select the repository `build` folder
 9. Enjoy!
 
 ## Tech Stack
