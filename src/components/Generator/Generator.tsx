@@ -6,11 +6,12 @@ import { Tooltip } from "@/components/Tooltip/Tooltip";
 import { generateCPF, generateCNPJ } from "@/lib/generate-document"
 import { cnpjMask, cpfMask } from "@/lib/masks";
 import { ModeToggle } from "../ModeToggle/ModeToggle";
+import { cn } from "@/lib/utils";
 
 type DocumentType = "CPF" | "CNPJ";
 
 function Generator() {
-  const [tooltipText, setTooltipText] = useState("Click to Copy");
+  const [tooltipText, setTooltipText] = useState("");
 
   const generateDocument = (type: DocumentType) => {
     const generatedDocument = type === "CPF" ? generateCPF() : generateCNPJ();
@@ -44,7 +45,7 @@ function Generator() {
             id="document"
             readOnly
             onClick={handleDocument}
-            className="cursor-pointer"
+            className={cn("cursor-pointer", !tooltipText.length && 'pointer-events-none')}
           />
         </Tooltip>
       </div>
