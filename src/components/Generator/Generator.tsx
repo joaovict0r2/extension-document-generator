@@ -1,7 +1,6 @@
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
 import { Tooltip } from "@/components/Tooltip/Tooltip";
 import { generateCPF, generateCNPJ } from "@/lib/generate-document"
 import { cnpjMask, cpfMask } from "@/lib/masks";
@@ -32,24 +31,21 @@ function Generator() {
 
   return (
     <div className="w-full flex flex-col p-4 mt-3.5 gap-2">
-      <div className="flex justify-end">
+      <div className="flex justify-between items-center mb-4">
+        <h1 className="text-[20px]">Document Generator</h1>
         <ModeToggle />
       </div>
 
-      <div className="grid w-full gap-2">
-        <Label htmlFor="document">Documento gerado:</Label>
-
-        <Tooltip text={tooltipText}>
-          <Input
-            type="document"
-            id="document"
-            readOnly
-            onClick={handleDocument}
-            className={cn("cursor-pointer", !tooltipText.length && 'pointer-events-none')}
-          />
-        </Tooltip>
-      </div>
-
+      <Tooltip text={tooltipText}>
+        <Input
+          type="document"
+          id="document"
+          readOnly
+          onClick={handleDocument}
+          className={cn("cursor-pointer", !tooltipText.length && 'pointer-events-none')}
+        />
+      </Tooltip>
+      
       <div className="w-full flex gap-1">
         <Button
           variant="outline"
