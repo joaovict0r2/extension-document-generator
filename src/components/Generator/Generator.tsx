@@ -1,9 +1,11 @@
-import { cnpjMask, cpfMask, generateCNPJ, generateCPF } from "@/lib/utils";
-import { Button } from "../ui/button";
-import { Input } from "../ui/input";
-import { Label } from "../ui/label";
-import { Tooltip } from "../Tooltip/Tooltip";
 import { useState } from "react";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
+import { Tooltip } from "@/components/Tooltip/Tooltip";
+import { generateCPF, generateCNPJ } from "@/lib/generate-document"
+import { cnpjMask, cpfMask } from "@/lib/masks";
+import { ModeToggle } from "../ModeToggle/ModeToggle";
 
 type DocumentType = "CPF" | "CNPJ";
 
@@ -29,6 +31,10 @@ function Generator() {
 
   return (
     <div className="w-full flex flex-col p-4 mt-3.5 gap-2">
+      <div className="flex justify-end">
+        <ModeToggle />
+      </div>
+
       <div className="grid w-full gap-2">
         <Label htmlFor="document">Documento gerado:</Label>
 
